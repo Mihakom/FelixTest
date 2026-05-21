@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #0A0B0E;
+  --color-brand-text: #E5E1D8;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-muted: rgba(212, 175, 55, 0.3);
+  --color-brand-border: rgba(229, 225, 216, 0.1);
+  --color-brand-surface: #15171C;
+  --color-brand-input-bg: rgba(255, 255, 255, 0.05);
+
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Georgia", serif;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin: 0;
+}
