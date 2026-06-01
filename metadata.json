@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Felix Bar & Food",
+  "description": "Website for Felix Bar & Food with menu, gallery and contact info.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

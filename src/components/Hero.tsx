@@ -27,7 +27,7 @@ export default function Hero() {
         >
           {/* Main Logo */}
           <div className="bg-brand-text p-10 rounded-[2px] mb-10 inline-flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.5)] border-[0.5px] border-black/20 h-48 w-48 lg:h-56 lg:w-56 overflow-hidden">
-             <img src="/felixFIN.png" alt="Felix Logo" className="h-full w-full object-contain" onError={(e) => {
+            <img src="/felixFIN.png" alt="Felix Logo" className="h-full w-full object-contain" onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
               }} />

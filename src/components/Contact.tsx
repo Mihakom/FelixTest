@@ -7,12 +7,33 @@ export default function Contact() {
   const { t } = useLanguage();
   const [formStatus, setFormStatus] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus(t.contact.success);
+    
     const form = e.target as HTMLFormElement;
-    form.reset();
-    setTimeout(() => setFormStatus(null), 3000);
+    const formData = new FormData(form);
+    formData.append("access_key", "dc16d57f-993f-4dc9-a533-ecf7e8f9d312");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus(t.contact.success);
+        form.reset();
+        setTimeout(() => setFormStatus(null), 3000);
+      } else {
+        setFormStatus("Error sending message.");
+        setTimeout(() => setFormStatus(null), 3000);
+      }
+    } catch (error) {
+      setFormStatus("Error sending message.");
+      setTimeout(() => setFormStatus(null), 3000);
+    }
   };
 
   return (
@@ -36,6 +57,13 @@ export default function Contact() {
                   5230 {t.contact.address}
                 </p>
               </div>
+              <div className="flex items-start gap-4 text-brand-text opacity-80">
+                <Clock className="text-brand-gold shrink-0" size={24} />
+                <div className="font-serif italic leading-relaxed text-sm">
+                  <strong className="tracking-widest opacity-80 text-[10px] uppercase font-sans not-italic">{t.contact.hoursTitle}</strong><br />
+                  {t.contact.hours}
+                </div>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6 bg-brand-surface p-8 border border-brand-border shadow-[0_0_50px_rgba(0,0,0,0.5)]">
@@ -46,6 +74,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors"
                 />
@@ -57,6 +86,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors"
                 />
@@ -67,6 +97,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={4}
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors resize-none"

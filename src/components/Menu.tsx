@@ -38,9 +38,10 @@ export default function Menu() {
               {t.menu.burgers}
             </h3>
             <MenuItem title={t.menu.beefBurger} description={t.menu.beefBurgerDesc} />
+            <MenuItem title={t.menu.balkanBurger} description={t.menu.balkanBurgerDesc} />
+            <MenuItem title={t.menu.chickenBurger} description={t.menu.chickenBurgerDesc} />
             <MenuItem title={t.menu.vegBurger} description={t.menu.vegBurgerDesc} />
             <MenuItem title={t.menu.veganBurger} description={t.menu.veganBurgerDesc} />
-            <MenuItem title={t.menu.beefPatty} description={t.menu.beefPattyDesc} />
           </motion.div>
 
           <motion.div 
@@ -52,6 +53,7 @@ export default function Menu() {
               <h3 className="text-xl font-serif italic text-brand-gold mb-6 border-b border-brand-gold-muted pb-2">
                 {t.menu.localFood}
               </h3>
+              <MenuItem title={t.menu.friedChicken} description={t.menu.friedChickenDesc} />
               <MenuItem title={t.menu.sausage} description={t.menu.sausageDesc} />
               <MenuItem title={t.menu.jota} description={t.menu.jotaDesc} />
             </div>
@@ -62,6 +64,15 @@ export default function Menu() {
               </h3>
               <MenuItem title={t.menu.saladSmall} description={t.menu.saladSmallDesc} />
               <MenuItem title={t.menu.saladLocal} description={t.menu.saladLocalDesc} />
+              <MenuItem title={t.menu.saladChicken} description={t.menu.saladChickenDesc} />
+              <MenuItem title={t.menu.coleslaw} description={t.menu.coleslawDesc} />
+            </div>
+
+            <div className="mb-12">
+              <h3 className="text-xl font-serif italic text-brand-gold mb-6 border-b border-brand-gold-muted pb-2">
+                {t.menu.drinksCategory}
+              </h3>
+              <MenuItem title={t.menu.drinks} description={t.menu.drinksDesc} />
             </div>
           </motion.div>
 

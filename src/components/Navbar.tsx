@@ -61,7 +61,7 @@ export default function Navbar() {
             ))}
             
             <div className="flex gap-4 items-center">
-              {(['sl', 'en', 'it'] as Language[]).map((lang) => (
+              {(['sl', 'en', 'it', 'de'] as Language[]).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => changeLanguage(lang)}
@@ -80,7 +80,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
              <div className="flex gap-3 items-center mr-4">
-              {(['sl', 'en', 'it'] as Language[]).map((lang) => (
+              {(['sl', 'en', 'it', 'de'] as Language[]).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => changeLanguage(lang)}
