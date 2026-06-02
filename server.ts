@@ -12,6 +12,19 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Security headers
+  app.use((req, res, next) => {
+    res.setHeader(
+      "Content-Security-Policy",
+      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' wss: https:; frame-ancestors 'self'; require-trusted-types-for 'script';"
+    );
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    next();
+  });
+
   // Wait to initialize resend dynamically so server doesn't crash on boot if env var isn't set
   let resendArgs: Resend | null = null;
   const getResend = () => {
@@ -31,13 +44,13 @@ async function startServer() {
         return res.status(500).json({ error: "Server is not configured for email sending (Missing RESEND_API_KEY)." });
       }
 
-      if (!process.env.RESEND_FROM_EMAIL || !process.env.RESEND_TO_EMAIL) {
-        return res.status(500).json({ error: "Server is not configured for email sending (Missing FROM/TO emails)." });
+      if (!process.env.RESEND_FROM_EMAIL) {
+        return res.status(500).json({ error: "Server is not configured for email sending (Missing FROM email)." });
       }
 
       const { data, error } = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL,
-        to: [process.env.RESEND_TO_EMAIL],
+        to: ["miha@komuskic.com"],
         subject: `Novo sporočilo s spletne strani - ${name}`,
         text: `
           Ime: ${name}
