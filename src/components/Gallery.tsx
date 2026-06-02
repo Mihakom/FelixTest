@@ -2,13 +2,21 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import { motion } from 'motion/react';
 
+// Import images directly so Vite processes them properly
+import imgBurger2 from '../assets/images/burger-2.jpg';
+import imgFood1 from '../assets/images/food-1.jpg';
+import imgTerrace from '../assets/images/terrace.jpg';
+import imgExterior from '../assets/images/exterior.jpg';
+import imgBurger1 from '../assets/images/burger-1.jpg';
+import imgWedges from '../assets/images/wedges.jpg';
+
 const images = [
-  "/burger-2.jpg", // Dva burgerja
-  "/food-1.jpg", // Pohano in krompirček
-  "/terrace.jpg", // Terasa
-  "/exterior.jpg", // Zunanjost
-  "/burger-1.jpg", // Burger od blizu
-  "/wedges.jpg"  // Krompirček s sirom
+  imgBurger2, // Dva burgerja
+  imgFood1, // Pohano in krompirček
+  imgTerrace, // Terasa
+  imgExterior, // Zunanjost
+  imgBurger1, // Burger od blizu
+  imgWedges  // Krompirček s sirom
 ];
 
 export default function Gallery() {

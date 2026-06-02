@@ -12,22 +12,28 @@ export default function Contact() {
     
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    formData.append("access_key", "dc16d57f-993f-4dc9-a533-ecf7e8f9d312");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          message: formData.get("message"),
+        }),
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.ok) {
         setFormStatus(t.contact.success);
         form.reset();
         setTimeout(() => setFormStatus(null), 3000);
       } else {
-        setFormStatus("Error sending message.");
+        const errData = await response.json();
+        setFormStatus(errData.error || "Error sending message.");
         setTimeout(() => setFormStatus(null), 3000);
       }
     } catch (error) {

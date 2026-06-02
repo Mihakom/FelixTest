@@ -24,7 +24,7 @@ export default function FullCenik() {
         { name: "CAPPUCCINO", price: "€ 2,90" },
         { name: "KAVA S SMETANO", price: "€ 2,90" },
         { name: "LATTE MACCHIATO", price: "€ 3,50" },
-        { name: "CORETTO", price: "€ 5,00" },
+        { name: "CORRETTO", price: "€ 5,00" },
         { name: "KAKAV", price: "€ 3,00" },
         { name: "VROČA ČOKOLADA", price: "€ 4,00" },
         { name: "ČAJ / TEA", price: "€ 2,90" },
@@ -65,7 +65,7 @@ export default function FullCenik() {
         { name: "UNION RADLER (različni okusi)", price: "€ 3,60" },
         { name: "ERDINGER WEIẞBIER 0,5L", price: "€ 5,50" },
         { name: "HEINEKEN 0,33L", price: "€ 4,00" },
-        { name: "ESTELLA BREZ GLUTENA 0,33L", price: "€ 4,00" },
+        { name: "ESTRELLA BREZ GLUTENA 0,33L", price: "€ 4,00" },
       ]
     },
     {
@@ -112,7 +112,7 @@ export default function FullCenik() {
       title: "KOKTAJLI & SPRITZ",
       items: [
         { name: "APEROL SPRITZ", price: "€ 7,50" },
-        { name: "CAMPARY SPRITZ / LIMONCELO SPRITZ", price: "€ 7,50" },
+        { name: "CAMPARI SPRITZ / LIMONCELLO SPRITZ", price: "€ 7,50" },
         { name: "HUGO SPRITZ", price: "€ 7,00" },
         { name: "LAPOPSI GIN TONIC", price: "€ 8,90" },
         { name: "THOMAS HENRY MULE (GINGER BEER)", price: "€ 9,50" },
@@ -185,7 +185,7 @@ export default function FullCenik() {
           <p className="opacity-60 text-sm whitespace-pre-line leading-relaxed max-w-lg mx-auto">
             Vse cene so v evrih. DDV je vključen v ceno.
             Seznam alergenov najdete pri točilnem pultu.
-            Cenik velja od APRIL 2026.
+            Cenik velja od aprila 2026.
           </p>
           <a href="#" className="inline-block mt-8 px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-black transition-colors rounded-sm text-sm" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}>
             Nazaj na glavno stran / Back to home

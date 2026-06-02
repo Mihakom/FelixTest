@@ -34,7 +34,7 @@ export const dict = {
       saladSmallDesc: 'Mešana solata, rukola, paradižnik, bučna semena.',
       saladLocal: 'Mala solata z lokalno skuto',
       saladLocalDesc: 'Mešana solata, rukola, paradižnik, bučna semena, lokalna kozja skuta.',
-      saladChicken: 'Solata z ocvrteam piščancem',
+      saladChicken: 'Solata z ocvrtim piščancem',
       saladChickenDesc: 'Mešana solata, rukola, paradižnik, bučna semena, ocvrt piščančji zrezek.',
       coleslaw: 'Coleslaw',
       coleslawDesc: 'Mala solata z zeljem, jogurtom in kislo smetano.',
