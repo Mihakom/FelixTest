@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://felix-bovec.com/sitemap.xml

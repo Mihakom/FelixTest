@@ -11,6 +11,14 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Redirect HTTP to HTTPS in production
+  app.use((req, res, next) => {
+    if (process.env.NODE_ENV === "production" && req.headers["x-forwarded-proto"] === "http") {
+      return res.redirect(308, `https://${req.headers.host}${req.url}`);
+    }
+    next();
+  });
+
   // Webhook for Resend needs the raw body
   app.post("/api/webhooks/resend", express.raw({ type: 'application/json' }), (req, res) => {
     const secret = process.env.RESEND_WEBHOOK_SECRET;
@@ -36,9 +44,10 @@ async function startServer() {
 
   // Security headers
   app.use((req, res, next) => {
+    const scriptSrc = process.env.NODE_ENV === "production" ? "'self'" : "'self' 'unsafe-inline' 'unsafe-eval'";
     res.setHeader(
       "Content-Security-Policy",
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' wss: https:; frame-src 'self' https://maps.google.com https://www.google.com; frame-ancestors 'self'; require-trusted-types-for 'script';"
+      `default-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' wss: https:; frame-src 'self' https://maps.google.com https://www.google.com; frame-ancestors 'self'; require-trusted-types-for 'script';`
     );
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
     res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
