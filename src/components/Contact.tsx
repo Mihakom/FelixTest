@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -6,9 +6,30 @@ import { motion } from 'motion/react';
 export default function Contact() {
   const { t } = useLanguage();
   const [formStatus, setFormStatus] = useState<string | null>(null);
+  
+  // Captcha state
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [captchaInput, setCaptchaInput] = useState('');
+
+  const generateCaptcha = () => {
+    setNum1(Math.floor(Math.random() * 10) + 1);
+    setNum2(Math.floor(Math.random() * 10) + 1);
+    setCaptchaInput('');
+  };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (parseInt(captchaInput) !== num1 + num2) {
+      setFormStatus("Napačen odgovor (CAPTCHA). Prosim poskusite znova.");
+      generateCaptcha();
+      return;
+    }
     
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -30,6 +51,7 @@ export default function Contact() {
       if (response.ok) {
         setFormStatus(t.contact.success);
         form.reset();
+        generateCaptcha();
         setTimeout(() => setFormStatus(null), 3000);
       } else {
         const errData = await response.json();
@@ -109,6 +131,21 @@ export default function Contact() {
                   rows={4}
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors resize-none"
                 ></textarea>
+              </div>
+
+              <div>
+                <label className="block text-[10px] uppercase tracking-[1px] opacity-60 text-brand-text mb-2" htmlFor="captcha">
+                  Preverjanje: Koliko je {num1} + {num2}?
+                </label>
+                <input
+                  type="text"
+                  id="captcha"
+                  name="captcha"
+                  required
+                  value={captchaInput}
+                  onChange={(e) => setCaptchaInput(e.target.value)}
+                  className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors"
+                />
               </div>
               
               <button
