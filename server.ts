@@ -20,7 +20,7 @@ async function startServer() {
   });
 
   // Webhook for Resend needs the raw body
-  app.post("/api/webhooks/resend", express.raw({ type: 'application/json' }), (req, res) => {
+  app.post("/api/webhooks/resend", express.raw({ type: 'application/json' }), async (req, res) => {
     const secret = process.env.RESEND_WEBHOOK_SECRET;
     const payload = req.body.toString();
 
@@ -31,8 +31,33 @@ async function startServer() {
 
     try {
       const wh = new Webhook(secret);
-      const msg = wh.verify(payload, req.headers as Record<string, string>);
-      console.log("Verified Resend webhook:", msg);
+      const msg = wh.verify(payload, req.headers as Record<string, string>) as any;
+      console.log("Verified Resend webhook:", msg.type);
+
+      // Auto-forward inbound emails
+      if (msg.type === "email.received" || msg.type === "email.inbound") {
+        const inboundData = msg.data;
+        if (inboundData) {
+          const resend = getResend();
+          if (resend) {
+            const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+            const ownerEmail = process.env.RESEND_TO_EMAIL || "miha@komuskic.com";
+            const sender = inboundData.from || "Neznan pošiljatelj";
+            const originalTo = Array.isArray(inboundData.to) ? inboundData.to.join(", ") : inboundData.to || "vas naslov";
+            
+            await resend.emails.send({
+              from: fromEmail,
+              to: [ownerEmail],
+              reply_to: sender,
+              subject: `[Posredovano - ${originalTo}] ${inboundData.subject || 'Brez zadeve'}`,
+              text: `Posredovano od: ${sender}\n\n${inboundData.text || ''}`,
+              html: inboundData.html ? `<div><small>Posredovano od: <b>${sender}</b></small></div><hr/><br/>${inboundData.html}` : undefined
+            });
+            console.log("Inbound email forwarded successfully to", ownerEmail);
+          }
+        }
+      }
+
       res.status(200).send("OK");
     } catch (err) {
       console.error("Webhook verification failed:", err);
