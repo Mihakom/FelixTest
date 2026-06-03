@@ -9,10 +9,13 @@ export const handler: Handler = async (event) => {
   try {
     const { name, email, phone, message } = JSON.parse(event.body || '{}');
 
-    const apiKey = process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.includes("eea03") 
-      ? process.env.RESEND_API_KEY 
-      : "re_BB4DQfR7_JrdAQ7j7W9FNd1av74bWstGU";
-
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: "REST API KEY missing on server. Prosim dodaj RESEND_API_KEY v Netlify Environment variables." })
+      };
+    }
     const resend = new Resend(apiKey);
     const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
     const toEmail = process.env.RESEND_TO_EMAIL || "miha@komuskic.com";
