@@ -33,8 +33,9 @@ export default function Contact() {
         setTimeout(() => setFormStatus(null), 3000);
       } else {
         const errData = await response.json();
-        setFormStatus(errData.error || "Error sending message.");
-        setTimeout(() => setFormStatus(null), 3000);
+        const msg = typeof errData.error === 'string' ? errData.error : (errData.error?.message || "Error sending message.");
+        setFormStatus(msg);
+        setTimeout(() => setFormStatus(null), 5000);
       }
     } catch (error) {
       setFormStatus("Error sending message.");
