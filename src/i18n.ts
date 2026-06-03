@@ -42,6 +42,7 @@ export const dict = {
       saucesDocs: 'Kečap / Majoneza / BBQ / Tatarska / Kajmak / Domača kozja skuta in več.',
       drinks: 'Naša ponudba pijač',
       drinksDesc: 'Točeno pivo, slovensko craft pivo, lokalna vina iz Goriških brd, domača žganja in osvežilni poletni koktajli.',
+      toGo: 'Možen je tudi osebni prevzem (TO-GO) hrane in pijače.',
     },
     contact: {
       title: 'Kontakt & Lokacija',
@@ -97,6 +98,7 @@ export const dict = {
       saucesDocs: 'Ketchup / Mayo / BBQ / Tatar / Kajmak / Local goat cottage cheese and more.',
       drinks: 'Our Drinks',
       drinksDesc: 'Draft beer, Slovenian craft beer, local wines from Goriška brda, homemade spirits, and refreshing summer cocktails.',
+      toGo: 'Takeaway (TO-GO) available for both food and drinks.',
     },
     contact: {
       title: 'Contact & Location',
@@ -152,6 +154,7 @@ export const dict = {
       saucesDocs: 'Ketchup / Maionese / BBQ / Tartara / Kajmak / Ricotta di capra locale e altro.',
       drinks: 'Le Nostre Bevande',
       drinksDesc: 'Birra alla spina, birra artigianale slovena, vini locali del Goriška brda, liquori della casa e cocktail estivi rinfrescanti.',
+      toGo: 'È disponibile anche l\'asporto (TO-GO) per cibo e bevande.',
     },
     contact: {
       title: 'Contatti e Posizione',
@@ -207,6 +210,7 @@ export const dict = {
       saucesDocs: 'Ketchup / Mayonnaise / BBQ / Tartar / Kajmak / Lokaler Ziegenkäse und mehr.',
       drinks: 'Unsere Getränke',
       drinksDesc: 'Fassbier, slowenisches Craft-Bier, lokale Weine aus Goriška Brda, hausgemachte Spirituosen und erfrischende Sommercocktails.',
+      toGo: 'Essen und Getränke auch zum Mitnehmen (TO-GO).',
     },
     contact: {
       title: 'Kontakt & Standort',

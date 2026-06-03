@@ -69,8 +69,7 @@ async function startServer() {
     return resendArgs;
   };
 
-  // API routes FIRST
-  app.post("/api/contact", async (req, res) => {
+  const contactHandler = async (req: express.Request, res: express.Response) => {
     try {
       const { name, email, phone, message } = req.body;
       
@@ -108,7 +107,11 @@ async function startServer() {
     } catch (error) {
       res.status(500).json({ error: "Failed to send message." });
     }
-  });
+  };
+
+  // API routes FIRST
+  app.post("/api/contact", contactHandler);
+  app.post("/.netlify/functions/contact", contactHandler);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
