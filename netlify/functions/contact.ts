@@ -18,7 +18,7 @@ export const handler: Handler = async (event) => {
     }
     const resend = new Resend(apiKey);
     const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-    const toEmail = process.env.RESEND_TO_EMAIL || "miha@komuskic.com";
+    const toEmail = process.env.RESEND_TO_EMAIL || "miha.komuskic@gmail.com";
 
     const { data, error } = await resend.emails.send({
       from: fromEmail,
