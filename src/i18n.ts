@@ -55,6 +55,7 @@ export const dict = {
       success: 'Sporočilo poslano',
       hoursTitle: 'Odpiralni čas',
       hours: 'VSAK DAN: 11:00 - 22:00 | Kuhinja: 11:00 - 20:00',
+      reservationsNotice: 'Rezervacije sprejemamo izključno za velike grupe.',
     }
   },
   en: {
@@ -111,6 +112,7 @@ export const dict = {
       success: 'Message sent',
       hoursTitle: 'Opening Hours',
       hours: 'EVERY DAY: 11:00 - 22:00 | Kitchen: 11:00 - 20:00',
+      reservationsNotice: 'Reservations are exclusively accepted for large groups.',
     }
   },
   it: {
@@ -167,6 +169,7 @@ export const dict = {
       success: 'Messaggio inviato',
       hoursTitle: 'Orari di Apertura',
       hours: 'OGNI GIORNO: 11:00 - 22:00 | Cucina: 11:00 - 20:00',
+      reservationsNotice: 'Le prenotazioni sono accettate esclusivamente per gruppi numerosi.',
     }
   },
   de: {
@@ -223,6 +226,7 @@ export const dict = {
       success: 'Nachricht gesendet',
       hoursTitle: 'Öffnungszeiten',
       hours: 'JEDEN TAG: 11:00 - 22:00 | Küche: 11:00 - 20:00',
+      reservationsNotice: 'Reservierungen werden ausschließlich für große Gruppen entgegengenommen.',
     }
   }
 };

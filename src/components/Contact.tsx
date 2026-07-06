@@ -95,6 +95,10 @@ export default function Contact() {
               </div>
             </div>
 
+            <div className="mb-8 bg-brand-gold/10 border border-brand-gold p-4 text-center">
+              <p className="font-serif italic text-brand-gold">{t.contact.reservationsNotice}</p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-6 bg-brand-surface p-8 border border-brand-border shadow-[0_0_50px_rgba(0,0,0,0.5)]">
               <div>
                 <label className="block text-[10px] uppercase tracking-[1px] opacity-60 text-brand-text mb-2" htmlFor="name">
