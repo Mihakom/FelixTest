@@ -109,6 +109,7 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
+                  autoComplete="name"
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors"
                 />
               </div>
@@ -121,6 +122,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
+                  autoComplete="email"
                   className="w-full px-4 py-3 bg-brand-input-bg border border-brand-border text-white text-sm focus:border-brand-gold focus:outline-none transition-colors"
                 />
               </div>
