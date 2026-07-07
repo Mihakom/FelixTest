@@ -8,14 +8,10 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-bg">
-      {/* Background Image Setup */}
+      {/* Background Pattern Setup */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/40 to-brand-bg border-r border-brand-border z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2000&auto=format&fit=crop" 
-          alt="Felix Bar Interior" 
-          className="w-full h-full object-cover grayscale-[20%]"
-        />
+        <div className="absolute inset-0 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.07]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/10 via-brand-bg/60 to-brand-bg z-10" />
       </div>
 
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-12">

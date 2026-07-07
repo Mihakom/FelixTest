@@ -82,8 +82,7 @@ export default function Contact() {
               <div className="flex items-start gap-4 text-brand-text opacity-80">
                 <MapPin className="text-brand-gold shrink-0" size={24} />
                 <p className="font-serif italic leading-relaxed text-sm">
-                  Trg golobarskih žrtev<br />
-                  5230 {t.contact.address}
+                  {t.contact.address}
                 </p>
               </div>
               <div className="flex items-start gap-4 text-brand-text opacity-80">
@@ -176,7 +175,7 @@ export default function Contact() {
             {/* Map iframe of Bovec */}
             <iframe
               title="Felix Bovec Location"
-              src="https://maps.google.com/maps?q=Felix%20Bar%20%26%20Food,%20Trg%20golobarskih%20%C5%BErtev%2018,%205230%20Bovec,%20Slovenia&t=&z=19&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Mala%20vas%2016,%205230%20Bovec,%20Slovenia&t=&z=18&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '500px' }}

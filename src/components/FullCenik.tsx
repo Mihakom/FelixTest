@@ -184,8 +184,6 @@ export default function FullCenik() {
           </h1>
           <p className="opacity-60 text-sm whitespace-pre-line leading-relaxed max-w-lg mx-auto">
             Vse cene so v evrih. DDV je vključen v ceno.
-            Seznam alergenov najdete pri točilnem pultu.
-            Cenik velja od aprila 2026.
           </p>
           <a href="#" className="inline-block mt-8 px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-black transition-colors rounded-sm text-sm" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}>
             Nazaj na glavno stran / Back to home
@@ -209,6 +207,16 @@ export default function FullCenik() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center space-y-6 pb-12 border-t border-brand-border pt-12">
+          <p className="opacity-60 text-sm whitespace-pre-line leading-relaxed max-w-lg mx-auto">
+            Seznam alergenov najdete pri točilnem pultu.
+            Cenik velja od aprila 2026.
+          </p>
+          <div className="mt-8 mb-4">
+            <p className="font-sans font-bold text-red-500/90 text-sm md:text-md uppercase tracking-widest bg-brand-gold/5 border border-brand-gold p-4 inline-block">Minister za zdravje opozarja: Uživanje alkohola lahko škoduje zdravju!</p>
+          </div>
         </div>
 
       </div>
